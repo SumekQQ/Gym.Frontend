@@ -1,0 +1,8 @@
+.btn-circle {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+  }

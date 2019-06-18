@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-add-or-update-exercise
+        (exerciseCreated)="createOrUpdateExercise($event)"
+        [categoryData]="categoryData"
+        [exerciseInfo]="currentExercise">
+        </app-add-or-update-exercise>
+    </div>
+    <div class="col-md-8">
+        <app-list-exercise 
+        [exerciseData]="exerciseData"
+        [categoryData]="categoryData"
+        (editClicked)="editClicked($event)"
+        (newClicked)="newClicked()"
+        (deleteClicked)="deleteClicked($event)">
+        </app-list-exercise >
+    </div>
+</div>

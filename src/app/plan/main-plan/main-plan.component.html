@@ -1,0 +1,18 @@
+
+<h1>Training Plan</h1>
+    <app-list-plan
+      *ngIf="listEnable"
+      [trainingPlanData]="trainingPlanData"
+      [exerciseData]="exerciseData"
+      [categoryData]="categoryData"
+      (editClicked)="editClicked($event)"
+      (newClicked)="editClicked($event)"
+      (deleteClicked)="deleteClicked($event)">
+    </app-list-plan>
+    <app-add-or-update-plan
+      *ngIf="!listEnable"
+      [exerciseData]="exerciseData"
+      [planInfo]="currentPlan"
+      (planCreated)="createOrUpdatePlan($event)"
+      (cancelClicked)="cancelClicked()">
+    </app-add-or-update-plan>

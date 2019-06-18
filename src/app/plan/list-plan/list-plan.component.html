@@ -1,0 +1,33 @@
+<div class="row">
+    <div  class="col-md-4">
+        <button type="button" class="btn btn-primary" (click)="newRecord()"> Create new </button>
+    </div>
+    <div class="col-md-8">
+<div class="accordion" id="accordionExample">
+
+    <div class="card" *ngFor="let plan of trainingPlanData; let i = index">
+      <div class="card-header" [id]="'heading' + i">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + i" aria-expanded="true"  [attr.aria-controls]="'collapse' + i">
+            {{ plan.name }}
+          </button>
+        </h5>
+      </div>
+  
+      <div [id]="'collapse' + i" class="collapse" [attr.aria-labelledby]="'heading' + i" data-parent="#accordionExample">
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item" 
+                *ngFor="let exercise of plan.exerciseIds;"                
+                >{{ getExercise(exercise).name }}</li>
+            </ul>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="editRecord(plan);"> Edit </button>
+            <button type="button" class="btn btn-danger"  (click)="deleteRecord(plan);">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

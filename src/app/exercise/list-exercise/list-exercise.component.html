@@ -1,0 +1,19 @@
+<table class="table">
+<thead class="thead-light">
+    <tr>
+        <th>ExerciseName</th>
+        <th>Category</th>
+        <th>Options</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let exercise of exerciseData"> 
+        <td>{{ exercise.name }}</td>
+        <td>{{ categoryData[exercise.category].name }}</td>
+        <td>
+            <a [routerLink]="" (click)="editRecord(exercise)">Edit</a> |
+            <a [routerLink]="" (click)="deleteRecord(exercise)">Delete</a>
+        </td>
+    </tr>
+</tbody>
+</table>
