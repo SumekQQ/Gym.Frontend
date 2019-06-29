@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { TrainingDay } from '../models/training-day.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainingDayService {
+  public TrainingDayData: Array<TrainingDay>;
   private headers: HttpHeaders;
   private accessPointUrl: string = "https://localhost:44324/TrainingDay";
   

@@ -16,15 +16,17 @@ import { HeaderComponent } from './header/header.component';
 import { AddOrUpdatePlanComponent } from './plan/add-or-update-plan/add-or-update-plan.component';
 import { ListPlanComponent } from './plan/list-plan/list-plan.component';
 import { HomeComponent } from './home/home.component';
-import { CalendarComponent } from './day/calendar/calendar.component';
-import { DatePickerComponent } from './day/date-picker/date-picker.component';
+import { NgbdDatepickerBasic } from './day/date-picker/date-picker.component';
+import { MainDayComponent } from './day/main-day/main-day.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddOrUpdateDayComponent } from './day/add-or-update-day/add-or-update-day.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'exercise', component: ExerciseMainComponent},
   { path: 'plan', component: MainPlanComponent},
-  { path: 'calendar', component: CalendarComponent},
+  { path: 'calendar', component: MainDayComponent},
 ];
 
 const config = {
@@ -45,15 +47,17 @@ const config = {
     MainPlanComponent,
     HeaderComponent,
     ExerciseMainComponent,
-    CalendarComponent,
-    DatePickerComponent
+    NgbdDatepickerBasic,
+    MainDayComponent,
+    AddOrUpdateDayComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    OktaAuthModule.initAuth(config)
+    OktaAuthModule.initAuth(config),
+    NgbModule
   ],
   providers: [
     ExerciseService,

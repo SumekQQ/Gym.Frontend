@@ -1,3 +1,13 @@
-<p>
-  date-picker works!
-</p>
+<ng-template #customDay let-date let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+    <span class="custom-day" [class.training]="isTraining(date)" [class.today]="isToday(date)" [class.focused]="focused"
+          [class.bg-primary]="selected" [class.hidden]="date.month !== currentMonth" [class.text-muted]="disabled">
+      {{ date.day }}
+    </span>
+  </ng-template>
+
+<ngb-datepicker #dp 
+[dayTemplate]="customDay"
+[(ngModel)]="model" 
+[disabled]="!disabled"
+(select)="changedSelectedDate($event)"></ngb-datepicker>
+
